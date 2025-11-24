@@ -1,33 +1,10 @@
-import express from "express";
-import { createServer } from "http";
-import path from "path";
-import { fileURLToPath } from "url";
+// This file is kept for reference only.
+// For production, use Vercel or any static hosting service.
+// The project is now configured as a pure static site using Vite.
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// If you need to test the production build locally:
+// 1. Run: npm run build
+// 2. Then use a simple HTTP server like: npx serve dist/public
+// 3. Or use Python: python -m http.server --directory dist/public 8000
 
-async function startServer() {
-  const app = express();
-  const server = createServer(app);
-
-  // Serve static files from dist/public in production
-  const staticPath =
-    process.env.NODE_ENV === "production"
-      ? path.resolve(__dirname, "public")
-      : path.resolve(__dirname, "..", "dist", "public");
-
-  app.use(express.static(staticPath));
-
-  // Handle client-side routing - serve index.html for all routes
-  app.get("*", (_req, res) => {
-    res.sendFile(path.join(staticPath, "index.html"));
-  });
-
-  const port = process.env.PORT || 3000;
-
-  server.listen(port, () => {
-    console.log(`Server running on http://localhost:${port}/`);
-  });
-}
-
-startServer().catch(console.error);
+console.log("This is a static site. Use 'npm run dev' for development or 'npm run build' for production build.");

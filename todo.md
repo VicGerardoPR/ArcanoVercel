@@ -39,3 +39,9 @@
 - [ ] Add background video to public folder (hero-video.mp4)
 - [x] Integrate logo in navigation header
 - [x] Integrate background video in hero section
+
+
+## Enhancements
+- [x] Add scroll animations with Framer Motion
+- [x] Implement image optimization component
+- [x] Create functional contact form with Formspree

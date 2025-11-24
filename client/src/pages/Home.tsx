@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { APP_LOGO } from "@/const";
+import { AnimatedCard } from "@/components/AnimatedCard";
+import { ContactForm } from "@/components/ContactForm";
 import {
   Menu,
   X,
@@ -237,87 +239,93 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Service 1: IA + Ops */}
-            <Card className="bg-card border-border hover:border-primary/50 transition-all hover:shadow-lg p-8">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center">
-                  <Zap className="w-6 h-6 text-primary" />
+            <AnimatedCard delay={0}>
+              <Card className="bg-card border-border hover:border-primary/50 transition-all hover:shadow-lg p-8 h-full">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center">
+                    <Zap className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-bold">Automatización con IA</h3>
                 </div>
-                <h3 className="text-xl font-bold">Automatización con IA</h3>
-              </div>
-              <p className="text-foreground/60 mb-6">
-                Implementamos soluciones de inteligencia artificial que
-                automatizan procesos, reducen costos operativos y aumentan la
-                eficiencia hasta un 300%.
-              </p>
-              <ul className="space-y-3">
-                {[
-                  "Chatbots inteligentes",
-                  "Análisis predictivo",
-                  "Procesamiento de datos",
-                  "Machine Learning",
-                ].map((item) => (
-                  <li key={item} className="flex items-center gap-2 text-sm">
-                    <CheckCircle className="w-4 h-4 text-primary" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </Card>
+                <p className="text-foreground/60 mb-6">
+                  Implementamos soluciones de inteligencia artificial que
+                  automatizan procesos, reducen costos operativos y aumentan la
+                  eficiencia hasta un 300%.
+                </p>
+                <ul className="space-y-3">
+                  {[
+                    "Chatbots inteligentes",
+                    "Análisis predictivo",
+                    "Procesamiento de datos",
+                    "Machine Learning",
+                  ].map((item) => (
+                    <li key={item} className="flex items-center gap-2 text-sm">
+                      <CheckCircle className="w-4 h-4 text-primary" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </Card>
+            </AnimatedCard>
 
             {/* Service 2: Web Development */}
-            <Card className="bg-card border-border hover:border-primary/50 transition-all hover:shadow-lg p-8 md:scale-105">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center">
-                  <Code className="w-6 h-6 text-primary" />
+            <AnimatedCard delay={100}>
+              <Card className="bg-card border-border hover:border-primary/50 transition-all hover:shadow-lg p-8 md:scale-105 h-full">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center">
+                    <Code className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-bold">Desarrollo Web</h3>
                 </div>
-                <h3 className="text-xl font-bold">Desarrollo Web</h3>
-              </div>
-              <p className="text-foreground/60 mb-6">
-                Creamos sitios web y aplicaciones escalables, rápidas y
-                optimizadas para conversión, utilizando las tecnologías más
-                modernas del mercado.
-              </p>
-              <ul className="space-y-3">
-                {[
-                  "Landing pages de alto rendimiento",
-                  "E-commerce profesional",
-                  "Aplicaciones web custom",
-                  "SEO y optimización",
-                ].map((item) => (
-                  <li key={item} className="flex items-center gap-2 text-sm">
-                    <CheckCircle className="w-4 h-4 text-primary" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </Card>
+                <p className="text-foreground/60 mb-6">
+                  Creamos sitios web y aplicaciones escalables, rápidas y
+                  optimizadas para conversión, utilizando las tecnologías más
+                  modernas del mercado.
+                </p>
+                <ul className="space-y-3">
+                  {[
+                    "Landing pages de alto rendimiento",
+                    "E-commerce profesional",
+                    "Aplicaciones web custom",
+                    "SEO y optimización",
+                  ].map((item) => (
+                    <li key={item} className="flex items-center gap-2 text-sm">
+                      <CheckCircle className="w-4 h-4 text-primary" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </Card>
+            </AnimatedCard>
 
             {/* Service 3: Branding */}
-            <Card className="bg-card border-border hover:border-primary/50 transition-all hover:shadow-lg p-8">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center">
-                  <Palette className="w-6 h-6 text-primary" />
+            <AnimatedCard delay={200}>
+              <Card className="bg-card border-border hover:border-primary/50 transition-all hover:shadow-lg p-8 h-full">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center">
+                    <Palette className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-bold">Branding & Diseño</h3>
                 </div>
-                <h3 className="text-xl font-bold">Branding & Diseño</h3>
-              </div>
-              <p className="text-foreground/60 mb-6">
-                Desarrollamos identidades de marca memorables y diseños que
-                comunican la esencia de tu negocio y conectan con tu audiencia.
-              </p>
-              <ul className="space-y-3">
-                {[
-                  "Identidad corporativa",
-                  "Diseño de logos",
-                  "Guías de marca",
-                  "Material publicitario",
-                ].map((item) => (
-                  <li key={item} className="flex items-center gap-2 text-sm">
-                    <CheckCircle className="w-4 h-4 text-primary" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </Card>
+                <p className="text-foreground/60 mb-6">
+                  Desarrollamos identidades de marca memorables y diseños que
+                  comunican la esencia de tu negocio y conectan con tu audiencia.
+                </p>
+                <ul className="space-y-3">
+                  {[
+                    "Identidad corporativa",
+                    "Diseño de logos",
+                    "Guías de marca",
+                    "Material publicitario",
+                  ].map((item) => (
+                    <li key={item} className="flex items-center gap-2 text-sm">
+                      <CheckCircle className="w-4 h-4 text-primary" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </Card>
+            </AnimatedCard>
           </div>
         </div>
       </section>
@@ -337,140 +345,146 @@ export default function Home() {
 
           <div className="space-y-12">
             {/* Case 1: ShopWave */}
-            <Card className="bg-card border-border p-8 md:p-12">
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div>
-                  <div className="flex gap-2 mb-4">
-                    <span className="text-xs bg-primary/20 text-primary px-3 py-1 rounded-full">
-                      Retail
-                    </span>
-                    <span className="text-xs bg-primary/20 text-primary px-3 py-1 rounded-full">
-                      Ecommerce
-                    </span>
-                  </div>
-                  <h3 className="text-2xl md:text-3xl font-bold mb-4">
-                    ShopWave
-                  </h3>
-                  <p className="text-foreground/60 mb-6">
-                    Diseñamos un funnel inteligente con motores de recomendación
-                    personalizados y campañas omnicanal que optimizaron la
-                    retención y el valor promedio de cada cliente activo.
-                  </p>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <div className="text-2xl font-bold text-primary">+65%</div>
-                      <div className="text-sm text-foreground/60">
-                        Procesos automatizados
-                      </div>
+            <AnimatedCard>
+              <Card className="bg-card border-border p-8 md:p-12">
+                <div className="grid md:grid-cols-2 gap-8 items-center">
+                  <div>
+                    <div className="flex gap-2 mb-4">
+                      <span className="text-xs bg-primary/20 text-primary px-3 py-1 rounded-full">
+                        Retail
+                      </span>
+                      <span className="text-xs bg-primary/20 text-primary px-3 py-1 rounded-full">
+                        Ecommerce
+                      </span>
                     </div>
-                    <div>
-                      <div className="text-2xl font-bold text-primary">3.2x</div>
-                      <div className="text-sm text-foreground/60">
-                        Incremento en ventas
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg h-64 flex items-center justify-center">
-                  <div className="text-center">
-                    <Code className="w-12 h-12 text-primary/50 mx-auto mb-2" />
-                    <p className="text-sm text-foreground/40">
-                      Ecommerce Platform
+                    <h3 className="text-2xl md:text-3xl font-bold mb-4">
+                      ShopWave
+                    </h3>
+                    <p className="text-foreground/60 mb-6">
+                      Diseñamos un funnel inteligente con motores de recomendación
+                      personalizados y campañas omnicanal que optimizaron la
+                      retención y el valor promedio de cada cliente activo.
                     </p>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <div className="text-2xl font-bold text-primary">+65%</div>
+                        <div className="text-sm text-foreground/60">
+                          Procesos automatizados
+                        </div>
+                      </div>
+                      <div>
+                        <div className="text-2xl font-bold text-primary">3.2x</div>
+                        <div className="text-sm text-foreground/60">
+                          Incremento en ventas
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg h-64 flex items-center justify-center">
+                    <div className="text-center">
+                      <Code className="w-12 h-12 text-primary/50 mx-auto mb-2" />
+                      <p className="text-sm text-foreground/40">
+                        Ecommerce Platform
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Card>
+              </Card>
+            </AnimatedCard>
 
             {/* Case 2: Lumen Capital */}
-            <Card className="bg-card border-border p-8 md:p-12">
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div className="bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg h-64 flex items-center justify-center order-2 md:order-1">
-                  <div className="text-center">
-                    <Zap className="w-12 h-12 text-primary/50 mx-auto mb-2" />
-                    <p className="text-sm text-foreground/40">SaaS Platform</p>
-                  </div>
-                </div>
-                <div className="order-1 md:order-2">
-                  <div className="flex gap-2 mb-4">
-                    <span className="text-xs bg-primary/20 text-primary px-3 py-1 rounded-full">
-                      Finanzas
-                    </span>
-                    <span className="text-xs bg-primary/20 text-primary px-3 py-1 rounded-full">
-                      SaaS
-                    </span>
-                  </div>
-                  <h3 className="text-2xl md:text-3xl font-bold mb-4">
-                    Lumen Capital
-                  </h3>
-                  <p className="text-foreground/60 mb-6">
-                    Construimos una plataforma web segura con onboarding
-                    automático, dashboards en tiempo real y un asistente virtual
-                    que responde consultas regulatorias 24/7.
-                  </p>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <div className="text-2xl font-bold text-primary">-72%</div>
-                      <div className="text-sm text-foreground/60">
-                        Menos fricción en registro
-                      </div>
-                    </div>
-                    <div>
-                      <div className="text-2xl font-bold text-primary">+118%</div>
-                      <div className="text-sm text-foreground/60">
-                        Pipeline mensual
-                      </div>
+            <AnimatedCard>
+              <Card className="bg-card border-border p-8 md:p-12">
+                <div className="grid md:grid-cols-2 gap-8 items-center">
+                  <div className="bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg h-64 flex items-center justify-center order-2 md:order-1">
+                    <div className="text-center">
+                      <Zap className="w-12 h-12 text-primary/50 mx-auto mb-2" />
+                      <p className="text-sm text-foreground/40">SaaS Platform</p>
                     </div>
                   </div>
+                  <div className="order-1 md:order-2">
+                    <div className="flex gap-2 mb-4">
+                      <span className="text-xs bg-primary/20 text-primary px-3 py-1 rounded-full">
+                        Finanzas
+                      </span>
+                      <span className="text-xs bg-primary/20 text-primary px-3 py-1 rounded-full">
+                        SaaS
+                      </span>
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-bold mb-4">
+                      Lumen Capital
+                    </h3>
+                    <p className="text-foreground/60 mb-6">
+                      Construimos una plataforma web segura con onboarding
+                      automático, dashboards en tiempo real y un asistente virtual
+                      que responde consultas regulatorias 24/7.
+                    </p>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <div className="text-2xl font-bold text-primary">-72%</div>
+                        <div className="text-sm text-foreground/60">
+                          Menos fricción en registro
+                        </div>
+                      </div>
+                      <div>
+                        <div className="text-2xl font-bold text-primary">+118%</div>
+                        <div className="text-sm text-foreground/60">
+                          Pipeline mensual
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </Card>
+              </Card>
+            </AnimatedCard>
 
             {/* Case 3: Isla Verde Collective */}
-            <Card className="bg-card border-border p-8 md:p-12">
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div>
-                  <div className="flex gap-2 mb-4">
-                    <span className="text-xs bg-primary/20 text-primary px-3 py-1 rounded-full">
-                      Hospitalidad
-                    </span>
-                    <span className="text-xs bg-primary/20 text-primary px-3 py-1 rounded-full">
-                      Turismo
-                    </span>
-                  </div>
-                  <h3 className="text-2xl md:text-3xl font-bold mb-4">
-                    Isla Verde Collective
-                  </h3>
-                  <p className="text-foreground/60 mb-6">
-                    Rediseñamos su identidad visual y habilitamos una experiencia
-                    de reservas asistida por IA que personaliza recomendaciones
-                    y sincroniza inventario con marketplaces.
-                  </p>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <div className="text-2xl font-bold text-primary">+82%</div>
-                      <div className="text-sm text-foreground/60">
-                        Reservas directas
-                      </div>
+            <AnimatedCard>
+              <Card className="bg-card border-border p-8 md:p-12">
+                <div className="grid md:grid-cols-2 gap-8 items-center">
+                  <div>
+                    <div className="flex gap-2 mb-4">
+                      <span className="text-xs bg-primary/20 text-primary px-3 py-1 rounded-full">
+                        Hospitalidad
+                      </span>
+                      <span className="text-xs bg-primary/20 text-primary px-3 py-1 rounded-full">
+                        Turismo
+                      </span>
                     </div>
-                    <div>
-                      <div className="text-2xl font-bold text-primary">-40%</div>
-                      <div className="text-sm text-foreground/60">
-                        Costo de soporte
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg h-64 flex items-center justify-center">
-                  <div className="text-center">
-                    <Palette className="w-12 h-12 text-primary/50 mx-auto mb-2" />
-                    <p className="text-sm text-foreground/40">
-                      Booking Platform
+                    <h3 className="text-2xl md:text-3xl font-bold mb-4">
+                      Isla Verde Collective
+                    </h3>
+                    <p className="text-foreground/60 mb-6">
+                      Rediseñamos su identidad visual y habilitamos una experiencia
+                      de reservas asistida por IA que personaliza recomendaciones
+                      y sincroniza inventario con marketplaces.
                     </p>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <div className="text-2xl font-bold text-primary">+82%</div>
+                        <div className="text-sm text-foreground/60">
+                          Reservas directas
+                        </div>
+                      </div>
+                      <div>
+                        <div className="text-2xl font-bold text-primary">-40%</div>
+                        <div className="text-sm text-foreground/60">
+                          Costo de soporte
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg h-64 flex items-center justify-center">
+                    <div className="text-center">
+                      <Palette className="w-12 h-12 text-primary/50 mx-auto mb-2" />
+                      <p className="text-sm text-foreground/40">
+                        Booking Platform
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Card>
+              </Card>
+            </AnimatedCard>
           </div>
         </div>
       </section>
@@ -490,68 +504,76 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             {/* Frontend */}
-            <Card className="bg-card border-border p-8">
-              <h3 className="text-xl font-bold mb-6">Frontend</h3>
-              <div className="flex flex-wrap gap-3">
-                {["React", "Next.js", "TypeScript", "Tailwind CSS"].map(
-                  (tech) => (
-                    <span
-                      key={tech}
-                      className="px-4 py-2 bg-primary/20 text-primary rounded-lg text-sm font-medium"
-                    >
-                      {tech}
-                    </span>
-                  )
-                )}
-              </div>
-            </Card>
+            <AnimatedCard delay={0}>
+              <Card className="bg-card border-border p-8">
+                <h3 className="text-xl font-bold mb-6">Frontend</h3>
+                <div className="flex flex-wrap gap-3">
+                  {["React", "Next.js", "TypeScript", "Tailwind CSS"].map(
+                    (tech) => (
+                      <span
+                        key={tech}
+                        className="px-4 py-2 bg-primary/20 text-primary rounded-lg text-sm font-medium"
+                      >
+                        {tech}
+                      </span>
+                    )
+                  )}
+                </div>
+              </Card>
+            </AnimatedCard>
 
             {/* Backend */}
-            <Card className="bg-card border-border p-8">
-              <h3 className="text-xl font-bold mb-6">Backend</h3>
-              <div className="flex flex-wrap gap-3">
-                {["Node.js", "Python", "PostgreSQL", "MongoDB"].map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-4 py-2 bg-primary/20 text-primary rounded-lg text-sm font-medium"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </Card>
-
-            {/* AI & ML */}
-            <Card className="bg-card border-border p-8">
-              <h3 className="text-xl font-bold mb-6">IA & ML</h3>
-              <div className="flex flex-wrap gap-3">
-                {["OpenAI", "TensorFlow", "Claude AI", "LangChain"].map(
-                  (tech) => (
+            <AnimatedCard delay={100}>
+              <Card className="bg-card border-border p-8">
+                <h3 className="text-xl font-bold mb-6">Backend</h3>
+                <div className="flex flex-wrap gap-3">
+                  {["Node.js", "Python", "PostgreSQL", "MongoDB"].map((tech) => (
                     <span
                       key={tech}
                       className="px-4 py-2 bg-primary/20 text-primary rounded-lg text-sm font-medium"
                     >
                       {tech}
                     </span>
-                  )
-                )}
-              </div>
-            </Card>
+                  ))}
+                </div>
+              </Card>
+            </AnimatedCard>
+
+            {/* AI & ML */}
+            <AnimatedCard delay={200}>
+              <Card className="bg-card border-border p-8">
+                <h3 className="text-xl font-bold mb-6">IA & ML</h3>
+                <div className="flex flex-wrap gap-3">
+                  {["OpenAI", "TensorFlow", "Claude AI", "LangChain"].map(
+                    (tech) => (
+                      <span
+                        key={tech}
+                        className="px-4 py-2 bg-primary/20 text-primary rounded-lg text-sm font-medium"
+                      >
+                        {tech}
+                      </span>
+                    )
+                  )}
+                </div>
+              </Card>
+            </AnimatedCard>
 
             {/* Cloud & DevOps */}
-            <Card className="bg-card border-border p-8">
-              <h3 className="text-xl font-bold mb-6">Cloud & DevOps</h3>
-              <div className="flex flex-wrap gap-3">
-                {["AWS", "Vercel", "Docker", "GitHub Actions"].map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-4 py-2 bg-primary/20 text-primary rounded-lg text-sm font-medium"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </Card>
+            <AnimatedCard delay={300}>
+              <Card className="bg-card border-border p-8">
+                <h3 className="text-xl font-bold mb-6">Cloud & DevOps</h3>
+                <div className="flex flex-wrap gap-3">
+                  {["AWS", "Vercel", "Docker", "GitHub Actions"].map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-4 py-2 bg-primary/20 text-primary rounded-lg text-sm font-medium"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </Card>
+            </AnimatedCard>
           </div>
         </div>
       </section>
@@ -595,7 +617,7 @@ export default function Home() {
                   "Implementamos tu proyecto y brindamos soporte continuo para garantizar el éxito.",
               },
             ].map((step, index) => (
-              <div key={step.number}>
+              <AnimatedCard key={step.number} delay={index * 100}>
                 <Card className="bg-card border-border p-8 h-full">
                   <div className="text-4xl font-bold text-primary mb-4">
                     {step.number}
@@ -610,7 +632,7 @@ export default function Home() {
                     <ArrowRight className="w-6 h-6 text-primary/50 rotate-90" />
                   </div>
                 )}
-              </div>
+              </AnimatedCard>
             ))}
           </div>
         </div>
@@ -628,35 +650,38 @@ export default function Home() {
               alcanzar tus objetivos.
             </p>
 
-            <Button
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground mb-16"
-            >
-              Agendar consulta gratuita
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
+            <AnimatedCard className="mb-12">
+              <div>
+                <h3 className="text-2xl font-bold mb-6">Formulario de Contacto</h3>
+                <ContactForm />
+              </div>
+            </AnimatedCard>
 
-            <div className="grid md:grid-cols-2 gap-8">
-              <Card className="bg-card border-border p-8">
-                <Mail className="w-8 h-8 text-primary mx-auto mb-4" />
-                <h3 className="font-bold mb-2">Email</h3>
-                <a
-                  href="mailto:info@arcanointelligence.com"
-                  className="text-primary hover:underline"
-                >
-                  info@arcanointelligence.com
-                </a>
-              </Card>
-              <Card className="bg-card border-border p-8">
-                <Phone className="w-8 h-8 text-primary mx-auto mb-4" />
-                <h3 className="font-bold mb-2">Teléfono</h3>
-                <a
-                  href="tel:+17875551234"
-                  className="text-primary hover:underline"
-                >
-                  +1 (787) 555-1234
-                </a>
-              </Card>
+            <div className="grid md:grid-cols-2 gap-8 mt-12">
+              <AnimatedCard delay={0}>
+                <Card className="bg-card border-border p-8">
+                  <Mail className="w-8 h-8 text-primary mx-auto mb-4" />
+                  <h3 className="font-bold mb-2 text-center">Email</h3>
+                  <a
+                    href="mailto:info@arcanointelligence.com"
+                    className="text-primary hover:underline text-center block"
+                  >
+                    info@arcanointelligence.com
+                  </a>
+                </Card>
+              </AnimatedCard>
+              <AnimatedCard delay={100}>
+                <Card className="bg-card border-border p-8">
+                  <Phone className="w-8 h-8 text-primary mx-auto mb-4" />
+                  <h3 className="font-bold mb-2 text-center">Teléfono</h3>
+                  <a
+                    href="tel:+17875551234"
+                    className="text-primary hover:underline text-center block"
+                  >
+                    +1 (787) 555-1234
+                  </a>
+                </Card>
+              </AnimatedCard>
             </div>
           </div>
         </div>
