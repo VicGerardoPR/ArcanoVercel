@@ -54,9 +54,8 @@ export default function Home() {
     <div className="min-h-screen bg-background text-foreground">
       {/* Navigation */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? "bg-background/95 backdrop-blur border-b border-border" : ""
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-background/95 backdrop-blur border-b border-border" : ""
+          }`}
       >
         <div className="container flex items-center justify-between h-16 md:h-20">
           <div className="flex items-center gap-2">
@@ -65,7 +64,7 @@ export default function Home() {
               alt="Arcano Intelligence"
               className="w-10 h-10 object-contain"
             />
-            <span className="font-bold text-lg hidden sm:inline">ARCANOAI</span>
+            <span className="font-bold text-lg hidden sm:inline">Arcano Intelligence</span>
           </div>
 
           {/* Desktop Menu */}
@@ -240,90 +239,111 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Service 1: IA + Ops */}
             <AnimatedCard delay={0}>
-              <Card className="bg-card border-border hover:border-primary/50 transition-all hover:shadow-lg p-8 h-full">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center">
-                    <Zap className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-bold">Automatización con IA</h3>
+              <Card className="bg-card border-border hover:border-primary/50 transition-all hover:shadow-lg overflow-hidden h-full group">
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src="/images/services/ai-automation.png"
+                    alt="Automatización con IA"
+                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                 </div>
-                <p className="text-foreground/60 mb-6">
-                  Implementamos soluciones de inteligencia artificial que
-                  automatizan procesos, reducen costos operativos y aumentan la
-                  eficiencia hasta un 300%.
-                </p>
-                <ul className="space-y-3">
-                  {[
-                    "Chatbots inteligentes",
-                    "Análisis predictivo",
-                    "Procesamiento de datos",
-                    "Machine Learning",
-                  ].map((item) => (
-                    <li key={item} className="flex items-center gap-2 text-sm">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                <div className="p-8">
+                  <div className="flex items-center gap-3 mb-4">
+                    <h3 className="text-xl font-bold">Automatización con IA</h3>
+                  </div>
+                  <p className="text-foreground/60 mb-6">
+                    Implementamos soluciones de inteligencia artificial que
+                    automatizan procesos, reducen costos operativos y aumentan la
+                    eficiencia hasta un 300%.
+                  </p>
+                  <ul className="space-y-3">
+                    {[
+                      "Chatbots inteligentes",
+                      "Análisis predictivo",
+                      "Procesamiento de datos",
+                      "Machine Learning",
+                    ].map((item) => (
+                      <li key={item} className="flex items-center gap-2 text-sm">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </Card>
             </AnimatedCard>
 
             {/* Service 2: Web Development */}
             <AnimatedCard delay={100}>
-              <Card className="bg-card border-border hover:border-primary/50 transition-all hover:shadow-lg p-8 md:scale-105 h-full">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center">
-                    <Code className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-bold">Desarrollo Web</h3>
+              <Card className="bg-card border-border hover:border-primary/50 transition-all hover:shadow-lg overflow-hidden md:scale-105 h-full group">
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src="/images/services/web-development.png"
+                    alt="Desarrollo Web"
+                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                 </div>
-                <p className="text-foreground/60 mb-6">
-                  Creamos sitios web y aplicaciones escalables, rápidas y
-                  optimizadas para conversión, utilizando las tecnologías más
-                  modernas del mercado.
-                </p>
-                <ul className="space-y-3">
-                  {[
-                    "Landing pages de alto rendimiento",
-                    "E-commerce profesional",
-                    "Aplicaciones web custom",
-                    "SEO y optimización",
-                  ].map((item) => (
-                    <li key={item} className="flex items-center gap-2 text-sm">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                <div className="p-8">
+                  <div className="flex items-center gap-3 mb-4">
+                    <h3 className="text-xl font-bold">Desarrollo Web</h3>
+                  </div>
+                  <p className="text-foreground/60 mb-6">
+                    Creamos sitios web y aplicaciones escalables, rápidas y
+                    optimizadas para conversión, utilizando las tecnologías más
+                    modernas del mercado.
+                  </p>
+                  <ul className="space-y-3">
+                    {[
+                      "Landing pages de alto rendimiento",
+                      "E-commerce profesional",
+                      "Aplicaciones web custom",
+                      "SEO y optimización",
+                    ].map((item) => (
+                      <li key={item} className="flex items-center gap-2 text-sm">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </Card>
             </AnimatedCard>
 
             {/* Service 3: Branding */}
             <AnimatedCard delay={200}>
-              <Card className="bg-card border-border hover:border-primary/50 transition-all hover:shadow-lg p-8 h-full">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center">
-                    <Palette className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-bold">Branding & Diseño</h3>
+              <Card className="bg-card border-border hover:border-primary/50 transition-all hover:shadow-lg overflow-hidden h-full group">
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src="/images/services/branding.png"
+                    alt="Branding & Diseño"
+                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                 </div>
-                <p className="text-foreground/60 mb-6">
-                  Desarrollamos identidades de marca memorables y diseños que
-                  comunican la esencia de tu negocio y conectan con tu audiencia.
-                </p>
-                <ul className="space-y-3">
-                  {[
-                    "Identidad corporativa",
-                    "Diseño de logos",
-                    "Guías de marca",
-                    "Material publicitario",
-                  ].map((item) => (
-                    <li key={item} className="flex items-center gap-2 text-sm">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                <div className="p-8">
+                  <div className="flex items-center gap-3 mb-4">
+                    <h3 className="text-xl font-bold">Branding & Diseño</h3>
+                  </div>
+                  <p className="text-foreground/60 mb-6">
+                    Desarrollamos identidades de marca memorables y diseños que
+                    comunican la esencia de tu negocio y conectan con tu audiencia.
+                  </p>
+                  <ul className="space-y-3">
+                    {[
+                      "Identidad corporativa",
+                      "Diseño de logos",
+                      "Guías de marca",
+                      "Material publicitario",
+                    ].map((item) => (
+                      <li key={item} className="flex items-center gap-2 text-sm">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </Card>
             </AnimatedCard>
           </div>
@@ -697,7 +717,7 @@ export default function Home() {
                 alt="Arcano Intelligence"
                 className="w-8 h-8 object-contain"
               />
-              <span className="font-bold">ARCANOAI</span>
+              <span className="font-bold">Arcano Intelligence</span>
             </div>
             <p className="text-foreground/60 text-sm">
               © 2024 Arcano Intelligence. Todos los derechos reservados.
