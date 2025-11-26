@@ -19,32 +19,32 @@ export function ContactForm({ onSuccess }: ContactFormProps) {
     formData.append("access_key", "1077d5e3-9adb-4e9a-8dfa-be9bb08bd444");
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        mode: "cors",
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
         headers: {
-          "Accept": "application/json"
+          Accept: 'application/json',
         },
-        body: formData
+        body: formData,
       });
-      console.log("Web3Forms response status:", response.status, response.ok);
+      // If the request failed (e.g., network error or non‑2xx status)
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('Web3Forms non‑OK response:', response.status, errorText);
+        toast.error('Error al enviar el mensaje. Por favor intente nuevamente.');
+        return;
+      }
       const data = await response.json();
-      console.log("Web3Forms response data:", data);
-
-
       if (data.success) {
-
-        toast.success("¡Mensaje enviado correctamente!");
+        toast.success('¡Mensaje enviado correctamente!');
         event.currentTarget.reset();
         onSuccess?.();
       } else {
-        console.error("Web3Forms Error:", data);
-
-        toast.error(data.message || "Error al enviar el mensaje.");
+        console.error('Web3Forms error payload:', data);
+        toast.error(data.message || 'Error al enviar el mensaje.');
       }
     } catch (error) {
-      console.error("Submission Error:", error);
-      toast.error("Error de conexión. Por favor intente nuevamente.");
+      console.error('Submission exception:', error);
+      toast.error('Error de conexión. Por favor intente nuevamente.');
     } finally {
       setIsLoading(false);
     }
