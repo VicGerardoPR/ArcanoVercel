@@ -695,10 +695,10 @@ export default function Home() {
                   <Phone className="w-8 h-8 text-primary mx-auto mb-4" />
                   <h3 className="font-bold mb-2 text-center">Teléfono</h3>
                   <a
-                    href="tel:+17875551234"
+                    href="+1939383645"
                     className="text-primary hover:underline text-center block"
                   >
-                    +1 (787) 555-1234
+                    +1 (939) 383-3645
                   </a>
                 </Card>
               </AnimatedCard>
