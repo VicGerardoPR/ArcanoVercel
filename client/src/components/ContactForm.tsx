@@ -89,7 +89,7 @@ export function ContactForm({ onSuccess }: ContactFormProps) {
           id="phone"
           name="phone"
           className="w-full px-4 py-2 bg-input border border-border rounded-lg text-foreground placeholder-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary"
-          placeholder="+1 (787) 555-1234"
+          placeholder="1(939)383-3645"
         />
       </div>
 
