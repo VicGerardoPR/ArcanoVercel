@@ -8,12 +8,12 @@ interface ContactFormProps {
 
 export function ContactForm({ onSuccess }: ContactFormProps) {
   const [isLoading, setIsLoading] = useState(false);
-  const [result, setResult] = useState("");
+
 
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsLoading(true);
-    setResult("Enviando...");
+
 
     const formData = new FormData(event.currentTarget);
     formData.append("access_key", "1077d5e3-9adb-4e9a-8dfa-be9bb08bd444");
@@ -33,18 +33,17 @@ export function ContactForm({ onSuccess }: ContactFormProps) {
 
 
       if (data.success) {
-        setResult("Form Submitted Successfully");
+
         toast.success("¡Mensaje enviado correctamente!");
         event.currentTarget.reset();
         onSuccess?.();
       } else {
         console.error("Web3Forms Error:", data);
-        setResult(data.message);
+
         toast.error(data.message || "Error al enviar el mensaje.");
       }
     } catch (error) {
       console.error("Submission Error:", error);
-      setResult("Error de conexión");
       toast.error("Error de conexión. Por favor intente nuevamente.");
     } finally {
       setIsLoading(false);
