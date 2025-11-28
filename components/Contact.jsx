@@ -10,7 +10,7 @@ export default function Contact() {
     service: '',
     message: ''
   })
-  
+
   const [status, setStatus] = useState('')
 
   const handleChange = (e) => {
@@ -23,13 +23,36 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setStatus('sending')
-    
-    // Simular envío (aquí conectarías con tu backend o servicio de email)
-    setTimeout(() => {
-      setStatus('success')
-      setFormData({ name: '', email: '', phone: '', service: '', message: '' })
-      setTimeout(() => setStatus(''), 3000)
-    }, 1500)
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const data = await response.json()
+
+      if (response.ok && data.success) {
+        setStatus('success')
+        setFormData({ name: '', email: '', phone: '', service: '', message: '' })
+        setTimeout(() => setStatus(''), 3000)
+      } else {
+        console.error('Error sending message:', data)
+        setStatus('error')
+        alert('Hubo un error al enviar el mensaje. Por favor intente nuevamente.')
+      }
+    } catch (error) {
+      console.error('Error sending message:', error)
+      setStatus('error')
+      alert('Error de conexión. Por favor intente nuevamente.')
+    } finally {
+      if (status !== 'success') {
+        setStatus('')
+      }
+    }
   }
 
   const contactInfo = [
@@ -87,7 +110,7 @@ export default function Contact() {
           {/* Contact Form */}
           <div className="card-dark">
             <h3 className="text-2xl font-bold mb-6">Envíanos un Mensaje 💬</h3>
-            
+
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Name */}
               <div>
