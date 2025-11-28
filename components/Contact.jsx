@@ -3,57 +3,35 @@
 import { useState } from 'react'
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    service: '',
-    message: ''
-  })
+  const [status, setStatus] = useState("");
 
-  const [status, setStatus] = useState('')
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    setStatus("Sending....");
+    const formData = new FormData(event.target);
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    setStatus('sending')
+    // Append custom subject if needed, or rely on hidden input
+    // formData.append("subject", "Nuevo mensaje desde Arcano Web");
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      })
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
 
-      const data = await response.json()
-
-      if (response.ok && data.success) {
-        setStatus('success')
-        setFormData({ name: '', email: '', phone: '', service: '', message: '' })
-        setTimeout(() => setStatus(''), 3000)
+      const data = await response.json();
+      if (data.success) {
+        setStatus("Form Submitted Successfully");
+        event.target.reset();
       } else {
-        console.error('Error sending message:', data)
-        setStatus('error')
-        alert('Hubo un error al enviar el mensaje. Por favor intente nuevamente.')
+        console.error("Web3Forms Error:", data);
+        setStatus("Error");
       }
     } catch (error) {
-      console.error('Error sending message:', error)
-      setStatus('error')
-      alert('Error de conexión. Por favor intente nuevamente.')
-    } finally {
-      if (status !== 'success') {
-        setStatus('')
-      }
+      console.error("Submission Error:", error);
+      setStatus("Error");
     }
-  }
+  };
 
   const contactInfo = [
     {
@@ -111,7 +89,9 @@ export default function Contact() {
           <div className="card-dark">
             <h3 className="text-2xl font-bold mb-6">Envíanos un Mensaje 💬</h3>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={onSubmit} className="space-y-6">
+              <input type="hidden" name="access_key" value="1077d5e3-9adb-4e9a-8dfa-be9bb08bd444" />
+
               {/* Name */}
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
@@ -121,8 +101,6 @@ export default function Contact() {
                   type="text"
                   id="name"
                   name="name"
-                  value={formData.name}
-                  onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-gray-900/50 border border-gray-700 rounded-lg 
                            text-white placeholder-gray-500 focus:outline-none focus:border-arcano-500 
@@ -140,8 +118,6 @@ export default function Contact() {
                   type="email"
                   id="email"
                   name="email"
-                  value={formData.email}
-                  onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-gray-900/50 border border-gray-700 rounded-lg 
                            text-white placeholder-gray-500 focus:outline-none focus:border-arcano-500 
@@ -159,8 +135,6 @@ export default function Contact() {
                   type="tel"
                   id="phone"
                   name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
                   className="w-full px-4 py-3 bg-gray-900/50 border border-gray-700 rounded-lg 
                            text-white placeholder-gray-500 focus:outline-none focus:border-arcano-500 
                            transition-colors"
@@ -176,8 +150,6 @@ export default function Contact() {
                 <select
                   id="service"
                   name="service"
-                  value={formData.service}
-                  onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-gray-900/50 border border-gray-700 rounded-lg 
                            text-white focus:outline-none focus:border-arcano-500 transition-colors"
@@ -197,8 +169,6 @@ export default function Contact() {
                 <textarea
                   id="message"
                   name="message"
-                  value={formData.message}
-                  onChange={handleChange}
                   required
                   rows={5}
                   className="w-full px-4 py-3 bg-gray-900/50 border border-gray-700 rounded-lg 
@@ -211,16 +181,21 @@ export default function Contact() {
               {/* Submit Button */}
               <button
                 type="submit"
-                disabled={status === 'sending'}
+                disabled={status === 'Sending....'}
                 className="btn-primary w-full disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {status === 'sending' ? 'Enviando...' : 'Enviar Mensaje 🚀'}
+                {status === 'Sending....' ? 'Enviando...' : 'Enviar Mensaje 🚀'}
               </button>
 
               {/* Status Messages */}
-              {status === 'success' && (
+              {status === 'Form Submitted Successfully' && (
                 <div className="p-4 bg-arcano-500/10 border border-arcano-500/30 rounded-lg text-arcano-500 text-center">
                   ✓ Mensaje enviado exitosamente. Te contactaremos pronto.
+                </div>
+              )}
+              {status === 'Error' && (
+                <div className="p-4 bg-red-500/10 border border-red-500/30 rounded-lg text-red-500 text-center">
+                  ❌ Hubo un error al enviar el mensaje.
                 </div>
               )}
             </form>
