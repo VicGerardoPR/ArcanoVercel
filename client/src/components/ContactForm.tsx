@@ -19,17 +19,24 @@ export function ContactForm({ onSuccess }: ContactFormProps) {
     formData.append("access_key", "1077d5e3-9adb-4e9a-8dfa-be9bb08bd444");
 
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-        },
-        body: formData,
-      });
+      const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify({
+            name: formData.get('name'),
+            email: formData.get('email'),
+            phone: formData.get('phone'),
+            company: formData.get('company'),
+            message: formData.get('message'),
+          }),
+        });
       // If the request failed (e.g., network error or non‑2xx status)
       if (!response.ok) {
         const errorText = await response.text();
-        console.error('Web3Forms non‑OK response:', response.status, errorText);
+        console.error('Contact API non‑OK response:', response.status, errorText);
         toast.error('Error al enviar el mensaje. Por favor intente nuevamente.');
         return;
       }
@@ -39,7 +46,7 @@ export function ContactForm({ onSuccess }: ContactFormProps) {
         event.currentTarget.reset();
         onSuccess?.();
       } else {
-        console.error('Web3Forms error payload:', data);
+        console.error('Contact API error payload:', data);
         toast.error(data.message || 'Error al enviar el mensaje.');
       }
     } catch (error) {
