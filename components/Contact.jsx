@@ -4,14 +4,13 @@ import { useState } from 'react'
 
 export default function Contact() {
   const [status, setStatus] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const onSubmit = async (event) => {
     event.preventDefault();
     setStatus("Sending....");
+    setErrorMessage(""); // Reset error message
     const formData = new FormData(event.target);
-
-    // Append custom subject if needed, or rely on hidden input
-    // formData.append("subject", "Nuevo mensaje desde Arcano Web");
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
@@ -26,10 +25,12 @@ export default function Contact() {
       } else {
         console.error("Web3Forms Error:", data);
         setStatus("Error");
+        setErrorMessage(data.message || "Ocurrió un error desconocido.");
       }
     } catch (error) {
       console.error("Submission Error:", error);
       setStatus("Error");
+      setErrorMessage("Error de conexión. Verifique su internet o intente más tarde.");
     }
   };
 
@@ -195,7 +196,7 @@ export default function Contact() {
               )}
               {status === 'Error' && (
                 <div className="p-4 bg-red-500/10 border border-red-500/30 rounded-lg text-red-500 text-center">
-                  ❌ Hubo un error al enviar el mensaje.
+                  ❌ {errorMessage || "Hubo un error al enviar el mensaje."}
                 </div>
               )}
             </form>
