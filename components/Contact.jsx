@@ -3,36 +3,7 @@
 import { useState } from 'react'
 
 export default function Contact() {
-  const [status, setStatus] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
 
-  const onSubmit = async (event) => {
-    event.preventDefault();
-    setStatus("Sending....");
-    setErrorMessage(""); // Reset error message
-    const formData = new FormData(event.target);
-
-    try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData
-      });
-
-      const data = await response.json();
-      if (data.success) {
-        setStatus("Form Submitted Successfully");
-        event.target.reset();
-      } else {
-        console.error("Web3Forms Error:", data);
-        setStatus("Error");
-        setErrorMessage(data.message || "Ocurrió un error desconocido.");
-      }
-    } catch (error) {
-      console.error("Submission Error:", error);
-      setStatus("Error");
-      setErrorMessage("Error de conexión. Verifique su internet o intente más tarde.");
-    }
-  };
 
   const contactInfo = [
     {
@@ -90,8 +61,11 @@ export default function Contact() {
           <div className="card-dark">
             <h3 className="text-2xl font-bold mb-6">Envíanos un Mensaje 💬</h3>
 
-            <form onSubmit={onSubmit} className="space-y-6">
+            <form action="https://api.web3forms.com/submit" method="POST" className="space-y-6">
               <input type="hidden" name="access_key" value="1077d5e3-9adb-4e9a-8dfa-be9bb08bd444" />
+
+              {/* Redirect to same page or custom success page after submission */}
+              {/* <input type="hidden" name="redirect" value="https://arcanointelligence.com/success" /> */}
 
               {/* Name */}
               <div>
@@ -182,23 +156,10 @@ export default function Contact() {
               {/* Submit Button */}
               <button
                 type="submit"
-                disabled={status === 'Sending....'}
-                className="btn-primary w-full disabled:opacity-50 disabled:cursor-not-allowed"
+                className="btn-primary w-full"
               >
-                {status === 'Sending....' ? 'Enviando...' : 'Enviar Mensaje 🚀'}
+                Enviar Mensaje 🚀
               </button>
-
-              {/* Status Messages */}
-              {status === 'Form Submitted Successfully' && (
-                <div className="p-4 bg-arcano-500/10 border border-arcano-500/30 rounded-lg text-arcano-500 text-center">
-                  ✓ Mensaje enviado exitosamente. Te contactaremos pronto.
-                </div>
-              )}
-              {status === 'Error' && (
-                <div className="p-4 bg-red-500/10 border border-red-500/30 rounded-lg text-red-500 text-center">
-                  ❌ {errorMessage || "Hubo un error al enviar el mensaje."}
-                </div>
-              )}
             </form>
           </div>
 
