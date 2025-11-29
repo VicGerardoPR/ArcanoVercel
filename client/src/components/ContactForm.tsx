@@ -14,44 +14,27 @@ export function ContactForm({ onSuccess }: ContactFormProps) {
     event.preventDefault();
     setIsLoading(true);
 
-
     const formData = new FormData(event.currentTarget);
-    formData.append("access_key", "1077d5e3-9adb-4e9a-8dfa-be9bb08bd444");
+    formData.append("access_key", "0e0333d7-27d1-4f1f-a3f0-9a262444a155");
 
     try {
-      const response = await fetch('/api/contact', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json',
-          },
-          body: JSON.stringify({
-            name: formData.get('name'),
-            email: formData.get('email'),
-            phone: formData.get('phone'),
-            company: formData.get('company'),
-            message: formData.get('message'),
-          }),
-        });
-      // If the request failed (e.g., network error or non‑2xx status)
-      if (!response.ok) {
-        const errorText = await response.text();
-        console.error('Contact API non‑OK response:', response.status, errorText);
-        toast.error('Error al enviar el mensaje. Por favor intente nuevamente.');
-        return;
-      }
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
       const data = await response.json();
       if (data.success) {
-        toast.success('¡Mensaje enviado correctamente!');
+        toast.success("¡Mensaje enviado correctamente!");
         event.currentTarget.reset();
         onSuccess?.();
       } else {
-        console.error('Contact API error payload:', data);
-        toast.error(data.message || 'Error al enviar el mensaje.');
+        console.error("Contact API error payload:", data);
+        toast.error(data.message || "Error al enviar el mensaje.");
       }
     } catch (error) {
-      console.error('Submission exception:', error);
-      toast.error('Error de conexión. Por favor intente nuevamente.');
+      console.error("Submission exception:", error);
+      toast.error("Error de conexión. Por favor intente nuevamente.");
     } finally {
       setIsLoading(false);
     }
