@@ -400,13 +400,13 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                  <div className="bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg h-64 flex items-center justify-center">
-                    <div className="text-center">
-                      <Code className="w-12 h-12 text-primary/50 mx-auto mb-2" />
-                      <p className="text-sm text-foreground/40">
-                        Ecommerce Platform
-                      </p>
-                    </div>
+                  <div className="relative h-64 rounded-lg overflow-hidden group">
+                    <img
+                      src="/images/cases/shopwave.png"
+                      alt="ShopWave Dashboard"
+                      className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300"></div>
                   </div>
                 </div>
               </Card>
@@ -416,11 +416,13 @@ export default function Home() {
             <AnimatedCard>
               <Card className="bg-card border-border p-8 md:p-12">
                 <div className="grid md:grid-cols-2 gap-8 items-center">
-                  <div className="bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg h-64 flex items-center justify-center order-2 md:order-1">
-                    <div className="text-center">
-                      <Zap className="w-12 h-12 text-primary/50 mx-auto mb-2" />
-                      <p className="text-sm text-foreground/40">SaaS Platform</p>
-                    </div>
+                  <div className="relative h-64 rounded-lg overflow-hidden group order-2 md:order-1">
+                    <img
+                      src="/images/cases/lumen-capital.png"
+                      alt="Lumen Capital Platform"
+                      className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300"></div>
                   </div>
                   <div className="order-1 md:order-2">
                     <div className="flex gap-2 mb-4">
@@ -494,13 +496,13 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                  <div className="bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg h-64 flex items-center justify-center">
-                    <div className="text-center">
-                      <Palette className="w-12 h-12 text-primary/50 mx-auto mb-2" />
-                      <p className="text-sm text-foreground/40">
-                        Booking Platform
-                      </p>
-                    </div>
+                  <div className="relative h-64 rounded-lg overflow-hidden group">
+                    <img
+                      src="/images/cases/isla-verde.png"
+                      alt="Isla Verde Booking"
+                      className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300"></div>
                   </div>
                 </div>
               </Card>
@@ -564,7 +566,18 @@ export default function Home() {
               <Card className="bg-card border-border p-8">
                 <h3 className="text-xl font-bold mb-6">IA & ML</h3>
                 <div className="flex flex-wrap gap-3">
-                  {["OpenAI", "TensorFlow", "Claude AI", "LangChain"].map(
+                  {[
+                    "OpenAI",
+                    "TensorFlow",
+                    "PyTorch",
+                    "Claude AI",
+                    "LangChain",
+                    "Hugging Face",
+                    "Scikit-learn",
+                    "Pandas",
+                    "LlamaIndex",
+                    "Pinecone"
+                  ].map(
                     (tech) => (
                       <span
                         key={tech}
