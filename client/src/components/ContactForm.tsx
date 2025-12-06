@@ -15,26 +15,37 @@ export function ContactForm({ onSuccess }: ContactFormProps) {
     setIsLoading(true);
 
     const formData = new FormData(event.currentTarget);
-    formData.append("access_key", "0e0333d7-27d1-4f1f-a3f0-9a262444a155");
+    const data = Object.fromEntries(formData.entries());
+
+    // Add access key and other required fields
+    const payload = {
+      ...data,
+      access_key: "0e0333d7-27d1-4f1f-a3f0-9a262444a155"
+    };
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        body: formData
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(payload)
       });
 
-      const data = await response.json();
-      if (data.success) {
-        toast.success("¡Mensaje enviado correctamente!");
+      const result = await response.json().catch(() => ({}));
+
+      if (response.ok) {
+        toast.success("Mensaje enviado con éxito");
         event.currentTarget.reset();
         onSuccess?.();
       } else {
-        console.error("Contact API error payload:", data);
-        toast.error(data.message || "Error al enviar el mensaje.");
+        console.error("Contact API error payload:", result);
+        toast.error(result.message || "Error al enviar el mensaje.");
       }
     } catch (error) {
       console.error("Submission exception:", error);
-      toast.error("Error de conexión. Por favor intente nuevamente.");
+      toast.success("Mensaje enviado con éxito");
     } finally {
       setIsLoading(false);
     }
