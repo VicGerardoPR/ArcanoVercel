@@ -530,7 +530,11 @@ export default function Home() {
               <Card className="bg-card border-border p-8">
                 <h3 className="text-xl font-bold mb-6">Frontend</h3>
                 <div className="flex flex-wrap gap-3">
-                  {["React", "Next.js", "TypeScript", "Tailwind CSS"].map(
+                  {[
+                    "React", "Next.js", "TypeScript", "Tailwind CSS",
+                    "Vercel AI SDK", "Framer Motion", "Shadcn/UI",
+                    "Streamlit", "Chainlit", "Gradio", "Vite", "Three.js"
+                  ].map(
                     (tech) => (
                       <span
                         key={tech}
@@ -549,7 +553,11 @@ export default function Home() {
               <Card className="bg-card border-border p-8">
                 <h3 className="text-xl font-bold mb-6">Backend</h3>
                 <div className="flex flex-wrap gap-3">
-                  {["Node.js", "Python", "PostgreSQL", "MongoDB"].map((tech) => (
+                  {[
+                    "Python", "FastAPI", "Node.js", "Go", "Rust",
+                    "PostgreSQL (pgvector)", "Pinecone", "Weaviate", "Qdrant",
+                    "Supabase", "Redis", "MongoDB", "Neo4j"
+                  ].map((tech) => (
                     <span
                       key={tech}
                       className="px-4 py-2 bg-primary/20 text-primary rounded-lg text-sm font-medium"
@@ -567,16 +575,9 @@ export default function Home() {
                 <h3 className="text-xl font-bold mb-6">IA & ML</h3>
                 <div className="flex flex-wrap gap-3">
                   {[
-                    "OpenAI",
-                    "TensorFlow",
-                    "PyTorch",
-                    "Claude AI",
-                    "LangChain",
-                    "Hugging Face",
-                    "Scikit-learn",
-                    "Pandas",
-                    "LlamaIndex",
-                    "Pinecone"
+                    "OpenAI", "Anthropic", "Google Gemini", "Meta Llama 3",
+                    "LangChain", "LangGraph", "AutoGen", "CrewAI", "DSPy",
+                    "Hugging Face", "PyTorch", "Ollama", "LlamaIndex"
                   ].map(
                     (tech) => (
                       <span
@@ -596,7 +597,11 @@ export default function Home() {
               <Card className="bg-card border-border p-8">
                 <h3 className="text-xl font-bold mb-6">Cloud & DevOps</h3>
                 <div className="flex flex-wrap gap-3">
-                  {["AWS", "Vercel", "Docker", "GitHub Actions"].map((tech) => (
+                  {[
+                    "Vercel", "AWS Bedrock", "Google Vertex AI", "Azure AI",
+                    "Docker", "Kubernetes", "Modal", "Replicate",
+                    "GitHub Actions", "Terraform", "Railway", "Fly.io"
+                  ].map((tech) => (
                     <span
                       key={tech}
                       className="px-4 py-2 bg-primary/20 text-primary rounded-lg text-sm font-medium"
